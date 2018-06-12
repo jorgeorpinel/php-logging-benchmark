@@ -1,0 +1,4 @@
+[2018-06-06 21:36:17] name.WARNING: Foo [] []
+[2018-06-06 21:36:17] name.ERROR: Bar [] []
+[2018-06-06 21:47:26] name.ERROR: Home accessed by {IP} [] []
+[2018-06-06 21:49:32] name.ERROR: Home accessed by {IP} [] []
