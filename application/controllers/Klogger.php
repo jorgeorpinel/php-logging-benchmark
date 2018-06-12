@@ -11,22 +11,23 @@ use Katzgrau\KLogger\Logger;
 class Klogger extends CI_Controller {
 
     /**
-     * Logs to file in application/logs/
+     * Uses `$this->file()`.
      */
     public function index() {
+        $this->file();
+    }
+
+    /**
+     * Logs 10k INFO msgs to KLogger's default file name in application/logs/
+     */
+    public function file() {
         $start_time = microtime(TRUE);
-        echo "KLogger...<br>\n";
+        echo "Logs 10k INFO msgs to KLogger's default file name";
         $logger = new Logger('application/logs');
-//        $logger->debug('Debug Message (KLogger)');
-        $logger->info('Info Message (KLogger)');
-//        $logger->notice('Notice Message (KLogger)');
-//        $logger->warning('Warning Message (KLogger)');
-//        $logger->error('Error Message (KLogger)');
-//        $logger->critical('Critical Message (KLogger)');
-//        $logger->alert('Alert Message (KLogger)');
-//        $logger->emergency('Emergency Message (KLogger)');
+        for ($i = 1; $i <= 10000; $i++)
+            $logger->info('Info Message (KLogger)');
         $end_time = microtime(TRUE);
-        echo $end_time - $start_time;
+        echo ' in ' . ($end_time - $start_time) . ' ms.';
     }
 
 }

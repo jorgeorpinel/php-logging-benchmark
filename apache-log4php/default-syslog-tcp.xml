@@ -1,0 +1,9 @@
+<configuration xmlns="http://logging.apache.org/log4php/">
+    <appender name="default" class="LoggerAppenderSocket">
+        <param name="remoteHost" value="tcp://localhost" />
+        <param name="port" value="514" />
+    </appender>
+    <root>
+        <appender_ref ref="default" />
+    </root>
+</configuration>
