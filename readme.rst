@@ -1,6 +1,6 @@
 This PHP Logging Framework Benchmark sample app uses CodeIgniter 3.
 
----
+----
 
 ###################
 What is CodeIgniter

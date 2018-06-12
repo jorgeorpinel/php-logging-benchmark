@@ -3,40 +3,34 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require 'apache-log4php/vendor/autoload.php';
 
+/**
+ * Logs with [Log4php](https://logging.apache.org/log4php/).
+ */
 class Log4php extends CI_Controller {
 
+    /**
+     * Logs INFO msg to file application/logs/apache-log4php.log
+     * (as defined in /apache-log4php/info.xml)
+     */
     public function index() {
         $start_time = microtime(TRUE);
-        Logger::configure('./apache-log4php/error.xml');
+        echo "Log4php file...<br>\n";
         $logger = Logger::getLogger("main");
-        $logger->error("Error Message");
+        Logger::configure('apache-log4php/default-file.xml');
+        $logger->info('Info Message (Log4php)');
         $end_time = microtime(TRUE);
         echo $end_time - $start_time;
     }
 
-    public function debug() {
+    /**
+     * Logs using the system logger.
+     */
+    public function syslog() {
         $start_time = microtime(TRUE);
-        Logger::configure('./apache-log4php/debug.xml');
+        echo "Log4php SYSLOG...<br>\n";
         $logger = Logger::getLogger("main");
-        $logger->debug("Debug Message");
-        $end_time = microtime(TRUE);
-        echo $end_time - $start_time;
-    }
-
-    public function warning() {
-        $start_time = microtime(TRUE);
-        Logger::configure('./apache-log4php/warning.xml');
-        $logger = Logger::getLogger("main");
-        $logger->warn("Warning Message");
-        $end_time = microtime(TRUE);
-        echo $end_time - $start_time;
-    }
-
-    public function info() {
-        $start_time = microtime(TRUE);
-        Logger::configure('./apache-log4php/info.xml');
-        $logger = Logger::getLogger("main");
-        $logger->info("Info Message");
+        Logger::configure('./apache-log4php/default-syslog.xml');
+        $logger->info('Info Message (Log4php SYSLOG)');
         $end_time = microtime(TRUE);
         echo $end_time - $start_time;
     }
