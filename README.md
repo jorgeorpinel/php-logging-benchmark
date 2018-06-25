@@ -14,9 +14,9 @@ As for the “remote” syslog server, we setup [rsyslog](https://www.rsyslog.co
 
 ### Libraries (dependencies)
 
-KLogger 1.2.1
-Log4php 2.3.0
-Monolog 1.23.0
+- KLogger 1.2.1
+- Log4php 2.3.0
+- Monolog 1.23.0
 
 ## Methodology
 
