@@ -12,13 +12,35 @@ For the local handlers, first we tested writing to local files and kept track of
 
 As for the “remote” syslog server, we setup [rsyslog](https://www.rsyslog.com/) on the system and configured it to accept both TCP and UDP logs, writing them to /var/log/messages.  We recorded the number of logs there to determine whether any of them were dropped.
 
+### Libraries (dependencies)
+
+KLogger 1.2.1
+Log4php 2.3.0
+Monolog 1.23.0
+
 ## Methodology
 
 We ran the application locally on Ubuntu with Apache (and mod-php). Then we used [ApacheBench](https://httpd.apache.org/docs/2.2/programs/ab.html) to stress test the local web app with 100 or 10 serial requests (file or syslog, respectively). For example:
 
 ```sh
-ab -ln 100 localhost:8080/Native/error_log
-ab -ln 10 localhost:8080/Monolog/syslog_udp
+ab -ln 100 localhost:8080/index.php/Native/error_log
+ab -ln 10 localhost:8080/index.php/Monolog/syslog_udp
 ```
 
 The total number of log calls in each test was 1,000,000 (each method). We gathered performance statistics from the tool’s report for each of the Controller/method.
+
+### List of Controller/methods to test
+
+```
+Native/error
+Native/syslog
+Klogger/file
+Log4php/file
+Log4php/syslog
+Log4php/syslog_tcp
+Log4php/syslog_udp
+Monolog/file
+Monolog/syslog
+Monolog/syslog_tcp
+Monolog/syslog_udp
+```
