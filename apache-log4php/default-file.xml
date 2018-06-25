@@ -1,8 +1,0 @@
-<configuration xmlns="http://logging.apache.org/log4php/">
-    <appender name="default" class="LoggerAppenderFile">
-        <param name="file" value="application/logs/apache-log4php.log" />
-    </appender>
-    <root>
-        <appender_ref ref="default" />
-    </root>
-</configuration>
