@@ -44,7 +44,7 @@ class Monolog extends CI_Controller {
         $log = new Logger('syslog');
         $log->pushHandler(new SyslogHandler('syslog', LOG_USER, Logger::INFO));
         for ($i = 1; $i <= 100000; $i++)
-            $log->info('Info Message (Monolog)');
+            $log->info('Info Message (Monolog SYSLOG)');
         $end_time = microtime(TRUE);
         echo ' in ' . ($end_time - $start_time) . ' ms.';
     }
@@ -60,7 +60,7 @@ class Monolog extends CI_Controller {
         $handler->setPersistent(true);
         $log->pushHandler($handler, Logger::INFO);
         for ($i = 1; $i <= 100000; $i++)
-            $log->info('TCP Info Message (Monolog)');
+            $log->info('TCP Info Message (Monolog SYSLOG)');
         $end_time = microtime(TRUE);
         echo ' in ' . ($end_time - $start_time) . ' ms.';
     }
@@ -74,7 +74,7 @@ class Monolog extends CI_Controller {
         $log = new Logger('syslog');
         $log->pushHandler(new SyslogUdpHandler('localhost', 514, LOG_USER, $level = Logger::INFO));
         for ($i = 1; $i <= 100000; $i++)
-            $log->info('UDP Info Message (Monolog)');
+            $log->info('UDP Info Message (Monolog SYSLOG)');
         $end_time = microtime(TRUE);
         echo ' in ' . ($end_time - $start_time) . ' ms.';
     }

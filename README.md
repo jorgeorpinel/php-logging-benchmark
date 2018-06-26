@@ -15,7 +15,7 @@ As for the “remote” syslog server, we setup [rsyslog](https://www.rsyslog.co
 ### Libraries (dependencies)
 
 - KLogger 1.2.1
-- Log4php 2.3.0
+- Log4php 2.3.0  (Needs `sudo apt-get install php-xml` on Ubuntu 16.04)
 - Monolog 1.23.0
 
 ## Methodology
@@ -44,3 +44,5 @@ Monolog/syslog
 Monolog/syslog_tcp
 Monolog/syslog_udp
 ```
+
+> `_tcp` and `_udp` methods require a "remote" Syslog server setup in localhost receiving TCP and UDP connections on port 514. (typically e.g. on Ubuntu this can be achieved by uncommenting the "imudp" and "imtcp" lines from /etc/rsyslog.conf)

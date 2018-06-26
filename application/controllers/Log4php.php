@@ -53,7 +53,7 @@ class Log4php extends CI_Controller {
         $logger = Logger::getLogger("main");
         Logger::configure('./apache-log4php/default-syslog-tcp.xml');
         for ($i = 1; $i <= 100000; $i++)
-            $logger->info('Info Message (Log4php SYSLOG)');
+            $logger->info('TCP Info Message (Log4php SYSLOG)');
         $end_time = microtime(TRUE);
         echo ' in ' . ($end_time - $start_time) . ' ms.';
     }
@@ -67,7 +67,7 @@ class Log4php extends CI_Controller {
         $logger = Logger::getLogger("main");
         Logger::configure('./apache-log4php/default-syslog-udp.xml');
         for ($i = 1; $i <= 100000; $i++)
-            $logger->info('Info Message (Log4php SYSLOG)');
+            $logger->info('UDP Info Message (Log4php SYSLOG)');
         $end_time = microtime(TRUE);
         echo ' in ' . ($end_time - $start_time) . ' ms.';
     }
